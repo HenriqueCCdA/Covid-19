@@ -1,11 +1,22 @@
 # Covid-19
 
-Gráficos da evolução de casos e mortes do covid-19. Todos os gráficos iniciam-se apartir que os paises tem mais de 100 casos.
+Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos iniciam-se apartir da data que os paises tem mais de 100 casos.
+
+## Paises
+
+* Brasil
+* Espanha
+* Itália
+* EUA
+
+## Ultima atualização
+
+25/03/2020
 
 ## Gráficos
 
-### Casos
-![Total de Casos diarios](fig/casos.pdf)
+### Total de Casos
+![Total de Casos diarios](fig/casos.png)
 
-### Mortes
-![Total de morte diarias](fig/mortes.pdf)
+### Total de Mortes
+![Total de morte diarias](fig/mortes.png)
