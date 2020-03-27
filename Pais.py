@@ -7,6 +7,9 @@ class Pais:
         self.__casos = []
         self.__mortes = []
 
+    def percentual(self):
+        return self.__mortes[-1]/self.__casos[-1]*100.e0
+
     @property
     def nome(self):
         return self.__nome
@@ -42,3 +45,13 @@ class Pais:
     @mortes.setter
     def mortes(self, v):
         self.__mortes.append(int(v))
+
+    @staticmethod
+    def nome_reg(pais):
+        nome_pais = pais.split('.')[0]
+        if nome_pais.lower() in 'usa':
+            nome_pais = nome_pais.upper()
+        else:
+            nome_pais = nome_pais.capitalize()
+
+        return nome_pais
