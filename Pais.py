@@ -6,9 +6,29 @@ class Pais:
         self.__dia = []
         self.__casos = []
         self.__mortes = []
+        self.__taxa_casos = []
+        self.__taxa_mortes = []
 
     def percentual(self):
         return self.__mortes[-1]/self.__casos[-1]*100.e0
+
+    def cal_taxa_de_casos(self):
+        self.__taxa_casos = Pais.derivada(self.__casos)
+
+    def cal_taxa_de_mortes(self):
+        self.__taxa_mortes = Pais.derivada(self.__mortes)
+
+    @property
+    def taxa_casos(self):
+        return self.__taxa_casos
+
+    @property
+    def taxa_mortes(self):
+        return self.__taxa_mortes
+
+    @property
+    def tdia(self):
+        return self.__tdia
 
     @property
     def nome(self):
@@ -55,3 +75,13 @@ class Pais:
             nome_pais = nome_pais.capitalize()
 
         return nome_pais
+
+    @staticmethod
+    def derivada(x):
+
+        deri = []
+        for i in range(0, len(x) - 1):
+            taxa = x[i+1] - x[i] # dc/dt
+            deri.append(taxa)
+
+        return deri
