@@ -8,6 +8,7 @@ class Pais:
         self.__mortes = []
         self.__taxa_casos = []
         self.__taxa_mortes = []
+        self.__gf_casos = []
 
     def percentual(self):
         return self.__mortes[-1]/self.__casos[-1]*100.e0
@@ -18,6 +19,13 @@ class Pais:
     def cal_taxa_de_mortes(self):
         self.__taxa_mortes = Pais.derivada(self.__mortes)
 
+    def cal_gf_de_casos(self):
+        self.__gf_casos = Pais.taxa_crescimento(self.__casos)
+
+    @property
+    def gf_casos(self):
+        return self.__gf_casos
+
     @property
     def taxa_casos(self):
         return self.__taxa_casos
@@ -25,10 +33,6 @@ class Pais:
     @property
     def taxa_mortes(self):
         return self.__taxa_mortes
-
-    @property
-    def tdia(self):
-        return self.__tdia
 
     @property
     def nome(self):
@@ -68,6 +72,7 @@ class Pais:
 
     @staticmethod
     def nome_reg(pais):
+
         nome_pais = pais.split('.')[0]
         if nome_pais.lower() in 'usa':
             nome_pais = nome_pais.upper()
@@ -85,3 +90,30 @@ class Pais:
             deri.append(taxa)
 
         return deri
+
+    @staticmethod
+    def taxa_crescimento(x) -> 'Taxa atual/Taxa anterior ':
+
+        gf = []
+        for i in range(1, len(x) - 1):
+            taxa_f = x[i+1] - x[i]
+            taxa_a = x[i] - x[i-1]
+            try:
+                gf.append(taxa_f/taxa_a)
+            except:
+                gf.append(0.0)
+
+        return gf
+
+    @staticmethod
+    def read_file(pais):
+
+        with open('data/' + pais) as file:
+            nome_pais = Pais.nome_reg(pais)
+
+            p = Pais(nome_pais)
+
+            for line in file:
+                p.data, p.dia, p.casos, p.mortes = line.strip().split(",")
+
+        return p
