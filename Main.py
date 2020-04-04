@@ -4,7 +4,7 @@ from Pais import Pais
 
 def main():
 
-    paises = ['brasil.csv', 'italia.csv','USA.csv', 'Espanha.csv', 'Portugal.csv']
+    paises = ['brasil.csv', 'italia.csv','USA.csv', 'Espanha.csv']
 
     fig1, ax1 = plt.subplots()
     fig2, ax2 = plt.subplots()
@@ -15,7 +15,7 @@ def main():
     mk = ['o','v','^','x','s']
 
     tdias0 =  4
-    tdias  = 35
+    tdias  = 41
 
     for i, pais in enumerate(paises):
 
@@ -25,8 +25,11 @@ def main():
         p.cal_taxa_de_mortes()
         p.cal_gf_de_casos()
 
-        ax1.semilogy(p.dia, p.casos , label=p.nome, ls='-', marker=mk[i])
-        ax2.semilogy(p.dia, p.mortes, label=p.nome, ls='-', marker=mk[i])
+#       ax1.semilogy(p.dia, p.casos , label=p.nome, ls='-', marker=mk[i])
+        ax1.plot(p.dia, p.casos , label=p.nome, ls='-', marker=mk[i])
+#       ax2.semilogy(p.dia, p.mortes, label=p.nome, ls='-', marker=mk[i])
+        ax2.plot(p.dia, p.mortes, label=p.nome, ls='-', marker=mk[i])
+
         ax3.plot(p.dia[:-1], p.taxa_casos, label=p.nome, ls='-', marker=mk[i])
         ax4.plot(p.dia[:-1], p.taxa_mortes, label=p.nome, ls='-', marker=mk[i])
 #       ax5.plot(p.dia[1:-1], p.gf_casos, label=p.nome, ls='-', marker=mk[i])
@@ -35,33 +38,35 @@ def main():
 
     # ... grafico casos
     ax1.set_xlim(tdias0, tdias)
-    ax1.set_ylim(100, 1000000)
+    ax1.set_ylim(150,400000)
     ax1.set_xlabel('Dias')
     ax1.set_ylabel('Casos')
     ax1.grid(lw=1, ls='--')
-    fig1.legend(bbox_to_anchor=(0.8, 0.45))
+#   fig1.legend(bbox_to_anchor=(0.8, 0.45))
+    fig1.legend(bbox_to_anchor=(0.4, 0.85))
 
     # ... grafico mortes
     ax2.set_xlim(tdias0, tdias)
-    ax2.set_ylim(0.1,1000000)
+    ax2.set_ylim(1,15000)
     ax2.set_xlabel('Dias')
     ax2.set_ylabel('Mortes')
     ax2.grid(lw=1, ls='--')
-    fig2.legend(bbox_to_anchor=(0.8, 0.45))
+#   fig2.legend(bbox_to_anchor=(0.8, 0.45))
+    fig2.legend(bbox_to_anchor=(0.4, 0.85))
 
     # ... grafico taxa de casos
     ax3.set_xlim(0,tdias)
     ax3.set_ylim(0, 30000)
     ax3.set_xlabel('Dias')
-    ax3.set_ylabel('Taxa de crescimento de casos por dia')
+    ax3.set_ylabel('Taxa de crescimento de novos casos por dia')
     ax3.grid(lw=1, ls='--')
     fig3.legend(bbox_to_anchor=(0.4, 0.85))
 
     # ... grafico taxa de mortes
     ax4.set_xlim(0, tdias)
-    ax4.set_ylim(0, 1000)
+    ax4.set_ylim(0, 1400)
     ax4.set_xlabel('Dias')
-    ax4.set_ylabel('Taxa de mortes por dia')
+    ax4.set_ylabel('Taxa de novas mortes por dia')
     ax4.grid(lw=1, ls='--')
     fig4.legend(bbox_to_anchor=(0.4, 0.85))
 
