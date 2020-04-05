@@ -11,9 +11,13 @@ class Pais:
         self.__taxa_casos = []
         self.__taxa_mortes = []
         self.__gf_casos = []
+        self.__hist_porcentagem = []
 
     def percentual(self):
         return self.__mortes[-1]/self.__casos[-1]*100.e0
+
+    def cal_hist_porcentual(self):
+        self.__hist_porcentagem = [x/y*100.0 if y != 0 else 0.0 for x, y in zip(self.__mortes, self.__casos)]
 
     def cal_taxa_de_casos(self):
         self.__taxa_casos = Pais.derivada(self.__casos)
@@ -27,6 +31,13 @@ class Pais:
     @property
     def gf_casos(self):
         return self.__gf_casos
+
+    @property
+    def hist_porcentagem(self):
+        return self.__hist_porcentagem
+
+
+
 
     @property
     def taxa_casos(self):

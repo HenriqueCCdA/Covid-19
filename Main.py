@@ -6,11 +6,12 @@ def main():
 
     paises = ['brasil.csv', 'italia.csv','USA.csv', 'Espanha.csv', 'Portugal.csv']
 
-    fig1, ax1 = plt.subplots()
-    fig2, ax2 = plt.subplots()
-    fig3, ax3 = plt.subplots()
-    fig4, ax4 = plt.subplots()
-    fig5, ax5 = plt.subplots()
+    fig1, ax1 = plt.subplots(figsize=(8,4))
+    fig2, ax2 = plt.subplots(figsize=(8,4))
+    fig3, ax3 = plt.subplots(figsize=(8,4))
+    fig4, ax4 = plt.subplots(figsize=(8,4))
+    fig5, ax5 = plt.subplots(figsize=(8,4))
+    fig6, ax6 = plt.subplots(figsize=(8,4))
 
     mk = ['o','v','^','x','s']
 
@@ -21,10 +22,14 @@ def main():
 
         p = Pais.read_file(pais, pandas=True)
 
+        # ...
         p.cal_taxa_de_casos()
         p.cal_taxa_de_mortes()
         p.cal_gf_de_casos()
+        p.cal_hist_porcentual()
+        # .............................................................................................................
 
+        # ... plot
         ax1.semilogy(p.dia, p.casos , label=p.nome, ls='-', marker=mk[i])
 #       ax1.plot(p.dia, p.casos , label=p.nome, ls='-', marker=mk[i])
         ax2.semilogy(p.dia, p.mortes, label=p.nome, ls='-', marker=mk[i])
@@ -33,6 +38,8 @@ def main():
         ax3.semilogy(p.dia[:-1], p.taxa_casos, label=p.nome, ls='-', marker=mk[i])
         ax4.semilogy(p.dia[:-1], p.taxa_mortes, label=p.nome, ls='-', marker=mk[i])
         ax5.semilogy(p.dia[1:-1], p.gf_casos, label=p.nome, ls='-', marker=mk[i])
+        ax6.plot(p.dia, p.hist_porcentagem, label=p.nome, ls='-', marker=mk[i])
+        # .............................................................................................................
 
         print(f"{p.nome:10} = {p.percentual():6.2f} % mortes")
 
@@ -82,9 +89,20 @@ def main():
     fig5.legend(bbox_to_anchor=(0.85, 0.85))
     fig5.suptitle('Fator de crescimento dos novos casos')
 
-    fig1.savefig('fig/casos.png')
-    fig2.savefig('fig/mortes.png')
-#   plt.show()
+    # ... grafico porcentagem de mortes
+    ax6.set_xlim(tdias0, tdias)
+    ax6.set_ylim(0.0, 20)
+    ax6.set_xlabel('Dias')
+    ax6.set_ylabel('%')
+    ax6.grid(lw=1, ls='--')
+    fig6.legend(bbox_to_anchor=(0.35, 0.85))
+    fig6.suptitle('Porcentagem de mortes')
+
+#   fig1.savefig('fig/casos.png')
+#   fig2.savefig('fig/mortes.png')
+#   fig3.savefig('fig/taxa_casos.png')
+#   fig4.savefig('fig/taxa_mortes.png')
+    plt.show()
 
 if __name__ == "__main__":
     main()
