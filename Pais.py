@@ -1,3 +1,5 @@
+import pandas as pd
+
 class Pais:
 
     def __init__(self, nome):
@@ -44,7 +46,11 @@ class Pais:
 
     @data.setter
     def data(self, v):
-        self.__data.append(v)
+        if isinstance(v, list):
+            for x in v:
+                self.__data.append(x)
+        else:
+            self.__data.append(v)
 
     @property
     def dia(self):
@@ -52,7 +58,11 @@ class Pais:
 
     @dia.setter
     def dia(self, v):
-        self.__dia.append(int(v))
+        if isinstance(v, list):
+            for x in v:
+                self.__dia.append(x)
+        else:
+            self.__dia.append(int(v))
 
     @property
     def casos(self):
@@ -60,7 +70,11 @@ class Pais:
 
     @casos.setter
     def casos(self, v):
-        self.__casos.append(int(v))
+        if isinstance(v, list):
+            for x in v:
+                self.__casos.append(x)
+        else:
+            self.__casos.append(int(v))
 
     @property
     def mortes(self):
@@ -68,7 +82,11 @@ class Pais:
 
     @mortes.setter
     def mortes(self, v):
-        self.__mortes.append(int(v))
+        if isinstance(v, list):
+            for x in v:
+                self.__mortes.append(x)
+        else:
+            self.__mortes.append(int(v))
 
     @staticmethod
     def nome_reg(pais):
@@ -106,14 +124,27 @@ class Pais:
         return gf
 
     @staticmethod
-    def read_file(pais):
+    def read_file(pais, pandas = False):
 
-        with open('data/' + pais) as file:
-            nome_pais = Pais.nome_reg(pais)
+        file_name = 'data/' + pais
+        nome_pais = Pais.nome_reg(pais)
+        p = Pais(nome_pais)
+        # ... leitura com pandas do arquivo csv
+        if pandas:
+            data = pd.read_csv(file_name)
+            data.columns = ['data', 'dia', 'casos', 'mortes']
+            p.data   = list(data['data'])
+            p.dia    = list(data['dia'])
+            p.casos  = list(data['casos'])
+            p.mortes = list(data['mortes'])
+        # ..............................................................................................................
 
-            p = Pais(nome_pais)
-
-            for line in file:
-                p.data, p.dia, p.casos, p.mortes = line.strip().split(",")
+        # .... leitura manual do arquivo csv
+        else:
+            with open(file_name) as file:
+                file.readline()
+                for line in file:
+                    p.data, p.dia, p.casos, p.mortes = line.strip().split(",")
+        # ..............................................................................................................
 
         return p
