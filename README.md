@@ -21,3 +21,9 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 
 ### Total de Mortes
 ![Total de morte diarias](fig/mortes.png)
+
+### Taxa de varialçao de novos casos por dia
+![Total de Casos diarios](fig/taxa_casos.png)
+
+### Taxa de varialçao de novas mortes por dia
+![Total de morte diarias](fig/taxa_mortes.png)
