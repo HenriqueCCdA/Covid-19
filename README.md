@@ -8,22 +8,19 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 * Espanha
 * Itália
 * EUA
-* Portugal
+* Alemanha
 
 ## Ultima atualização
 
-04/04/2020
+08/04/2020
 
 ## Gráficos
 
-### Total de Casos
-![Total de Casos diarios](fig/casos.png)
+### Total de Casos e taxa de variação de novos casos por dia
+![Casos confirmados](fig/casos.png)
 
-### Total de Mortes
-![Total de morte diarias](fig/mortes.png)
+### Total de Mortes e taxa de variação de novos casos por dia
+![Mortes confirmadas](fig/mortes.png)
 
-### Taxa de variação de novos casos por dia
-![Total de Casos diarios](fig/taxa_casos.png)
-
-### Taxa de variação de novas mortes por dia
-![Total de morte diarias](fig/taxa_mortes.png)
+### Porcentual de mortes 
+![Porcentual de mortes](fig/porcentagem_de_mortos.png)
