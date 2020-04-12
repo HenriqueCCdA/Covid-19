@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from Pais import Pais
+from script.Pais import Pais
 from math import pow
 
 def pg(y0, xF, dias_dobra):
