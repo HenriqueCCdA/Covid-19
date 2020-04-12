@@ -71,7 +71,7 @@ def main():
 
     # ... grafico mortes
     ax3.set_xlim(tdias0, tdias)
-    ax3.set_ylim(1,20000)
+    ax3.set_ylim(1,25000)
     ax4.set_xlim(tdias0,tdias)
     ax4.set_ylim(1, 2500)
     ax3.set_xlabel('Dias')
@@ -102,10 +102,10 @@ def main():
     fig4.legend(bbox_to_anchor=(0.35, 0.85))
     fig4.suptitle('Porcentagem de Mortes')
 
- #  fig1.savefig('fig/casos.png')
-#   fig2.savefig('fig/mortes.png')
-#   fig4.savefig('fig/porcentagem_de_mortos.png')
-    plt.show()
+    fig1.savefig('fig/casos.png')
+    fig2.savefig('fig/mortes.png')
+    fig4.savefig('fig/porcentagem_de_mortos.png')
+#    plt.show()
 
 if __name__ == "__main__":
     main()
