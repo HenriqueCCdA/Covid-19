@@ -24,7 +24,7 @@ def main():
     mk = ['o','v','^','x','s','D']
 
     tdias0 =  5
-    tdias  = 45
+    tdias  = 50
 
 #   for i in range(2,6):
 #       xd, dobra_x_dias  = pg(1, tdias, i)
@@ -57,7 +57,7 @@ def main():
 
     # ... grafico casos
     ax1.set_xlim(tdias0, tdias)
-    ax1.set_ylim(300,500000)
+    ax1.set_ylim(300,600000)
     ax2.set_xlim(tdias0,tdias)
     ax2.set_ylim(100, 50000)
     ax1.set_xlabel('Dias')
@@ -73,7 +73,7 @@ def main():
     ax3.set_xlim(tdias0, tdias)
     ax3.set_ylim(1,20000)
     ax4.set_xlim(tdias0,tdias)
-    ax4.set_ylim(1, 2000)
+    ax4.set_ylim(1, 2500)
     ax3.set_xlabel('Dias')
     ax3.set_ylabel('Mortes')
     ax4.set_xlabel('Dias')
@@ -81,7 +81,7 @@ def main():
     ax4.grid(lw=1, ls='--')
     fig2.legend(bbox_to_anchor = (0.5, 0.45), fontsize = 14)
     ax3.set_title('Total de Mortes')
-    ax4.set_title('Taxa de Novos Casos por Dia')
+    ax4.set_title('Taxa de Novas Mortes por Dia')
 
     # ... grafico mortes
     ax5.set_xlim(tdias0, tdias)
@@ -102,10 +102,10 @@ def main():
     fig4.legend(bbox_to_anchor=(0.35, 0.85))
     fig4.suptitle('Porcentagem de Mortes')
 
-    fig1.savefig('fig/casos.png')
-    fig2.savefig('fig/mortes.png')
-    fig4.savefig('fig/porcentagem_de_mortos.png')
- #   plt.show()
+ #  fig1.savefig('fig/casos.png')
+#   fig2.savefig('fig/mortes.png')
+#   fig4.savefig('fig/porcentagem_de_mortos.png')
+    plt.show()
 
 if __name__ == "__main__":
     main()
