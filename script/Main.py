@@ -24,7 +24,7 @@ def main():
     mk = ['o','v','^','x','s','D']
 
     tdias0 =  5
-    tdias  = 50
+    tdias  = 55
 
 #   for i in range(2,6):
 #       xd, dobra_x_dias  = pg(1, tdias, i)
@@ -102,10 +102,10 @@ def main():
     fig4.legend(bbox_to_anchor=(0.35, 0.85))
     fig4.suptitle('Porcentagem de Mortes')
 
-    fig1.savefig('fig/casos.png')
-    fig2.savefig('fig/mortes.png')
-    fig4.savefig('fig/porcentagem_de_mortos.png')
-#    plt.show()
+#    fig1.savefig('fig/casos.png')
+#    fig2.savefig('fig/mortes.png')
+#    fig4.savefig('fig/porcentagem_de_mortos.png')
+    plt.show()
 
 if __name__ == "__main__":
     main()
