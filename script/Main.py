@@ -23,7 +23,7 @@ def main():
 
     mk = ['o','v','^','x','s','D']
 
-    tdias0 =  5
+    tdias0 =  0
     tdias  = 55
 
 #   for i in range(2,6):
@@ -57,7 +57,7 @@ def main():
 
     # ... grafico casos
     ax1.set_xlim(tdias0, tdias)
-    ax1.set_ylim(300,600000)
+    ax1.set_ylim(300,800000)
     ax2.set_xlim(tdias0,tdias)
     ax2.set_ylim(100, 50000)
     ax1.set_xlabel('Dias')
@@ -71,7 +71,7 @@ def main():
 
     # ... grafico mortes
     ax3.set_xlim(tdias0, tdias)
-    ax3.set_ylim(1,25000)
+    ax3.set_ylim(1,60000)
     ax4.set_xlim(tdias0,tdias)
     ax4.set_ylim(1, 2500)
     ax3.set_xlabel('Dias')
