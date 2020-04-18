@@ -8,11 +8,11 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 * Espanha
 * Itália
 * EUA
-* Alemanha
+* Russia
 
 ## Ultima atualização
 
-15/04/2020
+17/04/2020
 
 ## Gráficos
 
