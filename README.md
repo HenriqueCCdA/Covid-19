@@ -9,6 +9,7 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 * Itália
 * EUA
 * Russia
+* Alemanha
 
 ## Ultima atualização
 
@@ -17,10 +18,10 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 ## Gráficos
 
 ### Total de Casos e taxa de variação de novos casos por dia
-![Casos confirmados](script/fig/casos.png)
+![Casos confirmados](fig/casos.png)
 
 ### Total de Mortes e taxa de variação de novos casos por dia
-![Mortes confirmadas](script/fig/mortes.png)
+![Mortes confirmadas](fig/mortes.png)
 
 ### Porcentual de mortes 
-![Porcentual de mortes](script/fig/porcentagem_de_mortos.png)
+![Porcentual de mortes](fig/porcentagem_de_mortos.png)
