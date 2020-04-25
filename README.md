@@ -13,7 +13,7 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 
 ## Ultima atualização
 
-21/04/2020
+23/04/2020
 
 ## Gráficos
 
@@ -25,3 +25,6 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 
 ### Porcentual de mortes 
 ![Porcentual de mortes](fig/porcentagem_de_mortos.png)
+
+### Comparação da África do Sul com a Coreia do Sul 
+![África do Sul x Coreia do Sul](fig/Africa_do_sul.png)
