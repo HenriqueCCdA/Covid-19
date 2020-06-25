@@ -1,4 +1,4 @@
-Data,Casos,Mortes,Pais,Dias,Casos_Media_10,Mortes_Media_10,Taxa_Casos_Media_10,Taxa_Mortes_Media_10,Taxa_Casos,Taxa_Mortes,Porcentagem,Porcentagem_Media_10
+Data,Casos,Mortes,Pais,Dias,Casos_Media,Mortes_Media,Taxa_Casos_Media,Taxa_Mortes_Media,Taxa_Casos,Taxa_Mortes,Porcentagem,Porcentagem_Media
 0,06/03/2020,222,14,USA,0,222.0,14.0,57.5,1.5,115.0,3.0,6.31,6.31
 1,07/03/2020,337,17,USA,1,279.5,15.5,57.166666666666686,1.8333333333333321,114.0,4.0,5.04,5.04
 2,08/03/2020,451,21,USA,2,336.6666666666667,17.333333333333332,45.583333333333314,1.1666666666666679,68.0,1.0,4.66,4.66
