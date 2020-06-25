@@ -5,7 +5,6 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 ## Paises
 
 * Brasil
-* Espanha
 * Itália
 * EUA
 * Russia

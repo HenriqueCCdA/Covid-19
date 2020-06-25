@@ -55,21 +55,23 @@ def data_por_pais(pais, ps, n_dias = 3):
     casos_e_mortes_confirmados['Pais'] = ps
     casos_e_mortes_confirmados['Dias'] = casos_e_mortes_confirmados.index
     # media movel de n_dias
-    casos_e_mortes_confirmados['Casos_Media_3'] = \
+    casos_e_mortes_confirmados['Casos_Media_10'] = \
        casos_e_mortes_confirmados['Casos'].rolling(n_dias, min_periods=1).mean()
-    casos_e_mortes_confirmados['Mortes_Media_3'] = \
+    casos_e_mortes_confirmados['Mortes_Media_10'] = \
         casos_e_mortes_confirmados['Mortes'].rolling(n_dias, min_periods=1).mean()
 
     # Caclulo de taxas
-    casos_e_mortes_confirmados['Taxa_Casos_Media_3'] = None
-    casos_e_mortes_confirmados['Taxa_Mortes_Media_3'] = None
+    casos_e_mortes_confirmados['Taxa_Casos_Media_10'] = None
+    casos_e_mortes_confirmados['Taxa_Mortes_Media_10'] = None
 
     for i in range(len(casos_e_mortes_confirmados) - 1):
-        dx = casos_e_mortes_confirmados.loc[i+1,'Casos_Media_3'] - casos_e_mortes_confirmados.loc[i, 'Casos_Media_3']
-        casos_e_mortes_confirmados.loc[i,'Taxa_Casos_Media_3'] = dx if dx > 0.0 else None
+        dx = (casos_e_mortes_confirmados.loc[i+1,'Casos_Media_10'] 
+              - casos_e_mortes_confirmados.loc[i, 'Casos_Media_10'])
+        casos_e_mortes_confirmados.loc[i,'Taxa_Casos_Media_10'] = dx if dx > 0.0 else None
 
-        dx = casos_e_mortes_confirmados.loc[i+1, 'Mortes_Media_3'] - casos_e_mortes_confirmados.loc[i, 'Mortes_Media_3']
-        casos_e_mortes_confirmados.loc[i,'Taxa_Mortes_Media_3'] = dx if dx > 0.0 else None
+        dx = (casos_e_mortes_confirmados.loc[i+1, 'Mortes_Media_10'] 
+            - casos_e_mortes_confirmados.loc[i, 'Mortes_Media_10'])
+        casos_e_mortes_confirmados.loc[i,'Taxa_Mortes_Media_10'] = dx if dx > 0.0 else None
 
         dx = casos_e_mortes_confirmados.loc[i+1,'Casos'] - casos_e_mortes_confirmados.loc[i, 'Casos']
         casos_e_mortes_confirmados.loc[i,'Taxa_Casos'] = dx if dx > 0.0 else None
@@ -97,18 +99,20 @@ def read():
     df = pd.DataFrame()
     for cd, nome in paises:
         pais = covid19.getLocationByCountryCode(cd, timelines = True)
-        df_novo = data_por_pais(pais, nome)
+        df_novo = data_por_pais(pais, nome, 7)
         df = pd.concat([df, df_novo], ignore_index = True)
 
     casos_e_mortes_confirmados = df.copy()
 
-    casos_e_mortes_confirmados['Porcentagem'] = casos_e_mortes_confirmados['Mortes'] / casos_e_mortes_confirmados['Casos'] * 100
+    casos_e_mortes_confirmados['Porcentagem'] = (casos_e_mortes_confirmados['Mortes'] /                        
+                                                 casos_e_mortes_confirmados['Casos'] * 100)
 
     casos_e_mortes_confirmados['Porcentagem'] = (casos_e_mortes_confirmados['Porcentagem'].astype(float)).round(2)
 
-    casos_e_mortes_confirmados['Porcentagem_Media_3'] = casos_e_mortes_confirmados['Mortes_Media_3'] \
-                                                        / casos_e_mortes_confirmados['Casos_Media_3'] * 100
+    casos_e_mortes_confirmados['Porcentagem_Media_10'] = (casos_e_mortes_confirmados['Mortes_Media_10']
+                                                         / casos_e_mortes_confirmados['Casos_Media_10'] * 100)
 
-    casos_e_mortes_confirmados['Porcentagem_Media_3'] = (casos_e_mortes_confirmados['Porcentagem'].astype(float)).round(2)
+    casos_e_mortes_confirmados['Porcentagem_Media_10'] =\
+    (casos_e_mortes_confirmados['Porcentagem'].astype(float)).round(2)
 
     casos_e_mortes_confirmados.to_csv('casos_e_mortes_confirmados.csv', index_label = False)
