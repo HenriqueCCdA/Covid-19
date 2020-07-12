@@ -82,7 +82,7 @@ def data_por_pais(pais, ps, n_dias = 3):
     return casos_e_mortes_confirmados
 
 
-def read():
+def read(url="https://cvtapi.nl"):
 
     paises = [('US', 'USA'),
               ('BR', 'Brasil'),
@@ -94,7 +94,7 @@ def read():
               ('KR', 'Coreia do Sul'),
               ('RU', 'Russia')]
 
-    covid19 = COVID19Py.COVID19()
+    covid19 = COVID19Py.COVID19(url=url, data_source="jhu")
 
     df = pd.DataFrame()
     for cd, nome in paises:
