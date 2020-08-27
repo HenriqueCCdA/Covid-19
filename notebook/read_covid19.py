@@ -92,7 +92,8 @@ def read(url="https://cvtapi.nl"):
               ('TR', 'Turquia'),
               ('ZA', 'África do Sul'),
               ('KR', 'Coreia do Sul'),
-              ('RU', 'Russia')]
+              ('RU', 'Russia'),
+              ('IN', 'India')]
 
     covid19 = COVID19Py.COVID19(url=url, data_source="jhu")
 
