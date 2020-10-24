@@ -10,7 +10,7 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 
 ## Ultima atualização
 
-23/09/2020
+23/10/2020
 
 ## Gráficos
 
