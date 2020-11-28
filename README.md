@@ -7,10 +7,11 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 * Brasil
 * EUA
 * India
+* Itália
 
 ## Ultima atualização
 
-23/10/2020
+28/10/2020
 
 ## Gráficos
 
