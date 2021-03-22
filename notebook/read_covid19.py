@@ -11,7 +11,7 @@ def data_por_pais(pais, ps, n_dias = 3):
 
     casos_confirmados = pd.DataFrame(data = pais[0]['timelines']['confirmed'])
     # removendo coluna latest
-    #del casos_confirmados['latest']
+    del casos_confirmados['latest']
 
     # tranformado o index em coluna
     casos_confirmados['Data'] = casos_confirmados.index
@@ -31,7 +31,7 @@ def data_por_pais(pais, ps, n_dias = 3):
 
     mortes_confirmados = pd.DataFrame(data = pais[0]['timelines']['deaths'])
     # removendo coluna latest
-    #del mortes_confirmados['latest']
+    del mortes_confirmados['latest']
 
     # tranformado o index em coluna e reiniciando o index
     mortes_confirmados['Data'] = mortes_confirmados.index
