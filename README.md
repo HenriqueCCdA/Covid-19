@@ -11,7 +11,7 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 
 ## Ultima atualização
 
-21/03/2021
+31/03/2021
 
 ## Gráficos
 
@@ -23,3 +23,6 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 
 ### Porcentual de mortes 
 ![Porcentual de mortes](fig/porcentagem_de_mortos.png)
+
+### Porcentual de mortes 
+![Casos e Mortes por milhão](fig/casos_mortes_por_habitantes.png)

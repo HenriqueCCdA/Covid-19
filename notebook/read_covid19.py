@@ -9,6 +9,9 @@ def tranforma_data(date_str):
 
 def data_por_pais(pais, ps, n_dias = 3):
 
+    # polulacao total
+    pol = pais[0]['country_population']/(10**6)
+    
     casos_confirmados = pd.DataFrame(data = pais[0]['timelines']['confirmed'])
     # removendo coluna latest
     del casos_confirmados['latest']
@@ -22,6 +25,9 @@ def data_por_pais(pais, ps, n_dias = 3):
     # modifica o formato da data
     casos_confirmados['Data'] = casos_confirmados['Data'].apply(tranforma_data)
 
+    # casos por milhoes habitantes
+    casos_confirmados['Casos_por_habitantes'] = casos_confirmados['Casos']/pol
+    
     # selecioando apenas com os com valores acima de 100 casos comfimados
     selecao = casos_confirmados.Casos > 200
     casos_confirmados = casos_confirmados[selecao]
@@ -43,6 +49,9 @@ def data_por_pais(pais, ps, n_dias = 3):
     mortes_confirmados['Data'] = mortes_confirmados['Data']\
         .apply(tranforma_data)
 
+    # casos por milhoes habitantes
+    mortes_confirmados['Mortes_por_habitantes'] = mortes_confirmados['Mortes']/pol
+    
     # selecionando apenas com os com valores acima de 100 casos comfimados
     mortes_confirmados = mortes_confirmados[selecao]
 
@@ -51,7 +60,10 @@ def data_por_pais(pais, ps, n_dias = 3):
 
     casos_e_mortes_confirmados = pd.DataFrame([casos_confirmados.Data,
                                                casos_confirmados.Casos,
-                                               mortes_confirmados.Mortes]).transpose()
+                                               casos_confirmados.Casos_por_habitantes,
+                                               mortes_confirmados.Mortes,
+                                               mortes_confirmados.Mortes_por_habitantes] 
+                                             ).transpose()
     casos_e_mortes_confirmados['Pais'] = ps
     casos_e_mortes_confirmados['Dias'] = casos_e_mortes_confirmados.index
     # media movel de n_dias
