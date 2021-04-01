@@ -21,8 +21,9 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 ### Total de Mortes e taxa de variação de novos casos por dia
 ![Mortes confirmadas](fig/mortes.png)
 
+### Casos e Mortes por milhão 
+![Casos e Mortes por milhão](fig/casos_mortes_por_habitantes.png)
+
 ### Porcentual de mortes 
 ![Porcentual de mortes](fig/porcentagem_de_mortos.png)
 
-### Porcentual de mortes 
-![Casos e Mortes por milhão](fig/casos_mortes_por_habitantes.png)
