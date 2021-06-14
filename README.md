@@ -3,7 +3,7 @@
 
 # Covid-19
 
-Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos iniciam-se apartir da data que os paises tem mais de 100 casos.
+Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos iniciam-se apartir da data que os paises tem mais de ``200`` casos. Os dados são obtido pelo o módulo ```COVID19Py```.
 
 ## Paises
 
@@ -14,7 +14,7 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 
 ## Ultima atualização
 
-14/05/2021
+`14/06/2021`
 
 ## Gráficos
 
