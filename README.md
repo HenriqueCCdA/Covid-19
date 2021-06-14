@@ -1,3 +1,6 @@
+![](https://img.shields.io/github/last-commit/HenriqueCCdA/bootCampAluraDataScience?style=plasti&ccolor=blue)
+![](https://img.shields.io/badge/Autor-Henrique%20C%20C%20de%20Andrade-blue)
+
 # Covid-19
 
 Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos iniciam-se apartir da data que os paises tem mais de 100 casos.
@@ -27,3 +30,4 @@ Gráficos da evolução dos casos e mortes do covid-19. Todos os gráficos inici
 ### Porcentual de mortes 
 ![Porcentual de mortes](fig/porcentagem_de_mortos.png)
 
+[<img src="https://img.shields.io/badge/mail-EA4335?style=flat-square&logo=Gmail&logoColor=white" />](henrique.ccda@gmail.com)
